@@ -14,6 +14,7 @@ const glados = async () => {
         headers: { ...common, 'content-type': 'application/json' },
         body: '{"token":"glados.one"}',
       }).then((r) => r.json())
+      console.log("result", action)
       if (action?.code) throw new Error(action?.message)
       const status = await fetch('https://glados.rocks/api/user/status', {
         method: 'GET',
